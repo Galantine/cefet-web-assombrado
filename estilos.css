@@ -42,18 +42,24 @@ a:active {
 
 
 /* --- Cabeçalho --- */
-#cabecalho {
+header {
   background-color: rgba(0, 0, 0, .95);
   box-shadow: 2px 10px 10px rgba(0,0,0, .25);
   padding-top: 1em;
   text-align: center;
 }
 
-#cabecalho ul {
+header ul {
   background-color: rgba(0, 204, 147, 0.53);
+  padding-left: none;
+  list-style-type: none;
 }
 
-#cabecalho a {
+header li {
+  display: inline-block;
+}
+
+header a {
   text-decoration: none;
   text-shadow: 1px 1px black;
 }
@@ -73,7 +79,6 @@ a:active {
 
 
 
-
 /* --- Principal >> Postagens principais --- */
 #posts-principais {
   padding-top: 1.5em;
@@ -89,10 +94,24 @@ a:active {
   margin-left: 2.5%;
   margin-right: 2.5%;
   display: inline-block;
+  position: relative;
 }
 
 #posts-principais .post .titulo {
   text-shadow: 1px 1px black;
+  position: relative;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 200ms ease;
+  position: absolute;
+  top: -6px;
+  left: 6px;
+  right: 6px;
+}
+
+#posts-principais .post .titulo:hover {
+  opacity: 1;
+  top:6px;
 }
 
 #posts-principais .post img {
@@ -102,8 +121,6 @@ a:active {
   border: 6px solid white;
   margin-bottom: .5em;
 }
-
-
 
 
 /* --- Principal >> Últimas postagens --- */
@@ -117,7 +134,7 @@ a:active {
   margin-bottom: 1em;
 }
 
-#ultimas-postagens .post .data-horario {
+#ultimas-postagens .post time {
   background-color: white;
   color: #333;
   border: 1px solid black;
@@ -133,7 +150,13 @@ a:active {
   display: inline-block;
 }
 
-
+.novidade::before {
+  content: "Novidade!";
+  display: inline-block;
+  background: green;
+  border-radius: 25px;
+  padding: 2px;
+}
 
 
 /* --- Principal >> Nuvem de tags --- */
@@ -147,6 +170,9 @@ a:active {
   background-size: 300px;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
 }
 
 #tags h1 {
@@ -164,6 +190,14 @@ a:active {
   background-color: orange;
   color: white;
   text-shadow: 1px 1px black;
+  position: relative;
+}
+
+.tag-1:active,
+.tag-2:active,
+.tag-3:active {
+  left: -2px;
+  top: -2px;
 }
 
 .tag-2 {
@@ -179,18 +213,31 @@ a:active {
 
 
 /* --- Rodapé --- */
-#rodape {
+footer {
   background-color: rgba(0, 0, 0, .7);
   padding: 1em;
   display: flex;
 }
 
-#rodape .logo-rodape {
+footer .logo-rodape {
   margin-right: 2em;
 }
 
+#inscreva-se {
+  display: inline-block;
+}
 
 
+/* --- Boos --- */
+
+.boo {
+  position: fixed;
+  opacity: 0.5;
+}
+
+.boo:hover {
+  opacity: 1;
+}
 
 
 /* --- Vídeo --- */
